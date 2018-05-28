@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>makeArrayConsecutive2</title>
+</head>
+<body>
+    <script>
+    function makeArrayConsecutive2(statues)
+    {
+        var n = statues.length,
+            i, j, box, s;
+    
+        for (j = 0; j < n-1; j++)
+            for (i = n-1; i > j; i--)
+            {   if (statues[i] < statues[i-1])
+                {
+                    box = statues[i];
+                    statues[i] = statues[i-1];
+                    statues[i-1] = box;
+                }
+            }
+        
+        s = 0;
+        for (i = 1; i < n; i++)
+            if (statues[i] - statues[i-1] > 1)
+                s += statues[i] - statues[i-1] - 1;
+    
+        return s;      
+    
+    }
+
+    console.log(makeArrayConsecutive2([6, 2, 3, 8]));
+    </script>
+</body>
+</html>

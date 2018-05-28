@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>adjacentElementsProduct</title>
+</head>
+<body>
+    <script>
+    function adjacentElementsProduct(inputArray)
+    {
+        var s = inputArray[0] * inputArray[1];
+        for (let i = 1; i < inputArray.length - 1; i++)
+        if (s < inputArray[i] * inputArray[i + 1])
+            s = inputArray[i] * inputArray[i + 1];
+    
+        return s;
+    }
+
+    console.log(adjacentElementsProduct([2, 5, 4]));
+    </script>
+</body>
+</html>

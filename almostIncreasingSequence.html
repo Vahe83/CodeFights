@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>almostIncreasingSequence</title>
+</head>
+<body>
+    <script>
+    function almostIncreasingSequence(sequence)
+    {
+      var count = 0;
+      for(var i =1; i < sequence.length; i++)
+          if (sequence[i] <= sequence[i-1])
+          {
+            count++;
+            if(count > 1)
+                return false;
+
+            if(sequence[i] <= sequence[i-2] && sequence[i+1] <= sequence[i-1])
+                return false;
+          }
+      return true;
+    }
+
+    console.log(almostIncreasingSequence([1, 3, 2, 1]));
+    </script>
+</body>
+</html>

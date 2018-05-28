@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>almostIncreasingSequence</title>
+</head>
+<body>
+    <script>
+    function matrixElementsSum(matrix)
+    {
+        let i;
+        let j = 0;
+        let s = 0;
+   
+        while (j < matrix[0].length)
+        {
+            i = 0;
+            while (i < matrix.length)
+            {
+                if (matrix[i][j] > 0)
+                {
+                    s += matrix[i][j];
+                    i++;
+                }
+                else
+                {
+                    i = matrix.length;
+
+                }
+            }
+            j++;
+        }
+        return s;
+    }
+
+
+    console.log(matrixElementsSum([ [0, 1, 1, 2], 
+                                    [0, 5, 0, 0], 
+                                    [2, 0, 3, 3]]));
+    </script>
+</body>
+</html>
