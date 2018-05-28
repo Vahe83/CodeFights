@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        function centuryFromYear(year)
+        {
+            if (year >=1 && year <= 2018)
+            {
+                if (year % 100 != 0)
+                    return Math.floor(year / 100) + 1;
+                else
+                    return Math.floor(year / 100);
+            }
+
+        }
+        console.log(centuryFromYear(2018));
+    </script>
+</body>
+</html>
