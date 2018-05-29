@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>allLongestStrings</title>
+</head>
+<body>
+    <script>
+    function allLongestStrings(inputArray)
+    {
+        var max = inputArray[0].length;
+        for (var i = 1; i < inputArray.length; i++)
+            if (max < inputArray[i].length)
+            max = inputArray[i].length;
+    
+        var arr = [];
+        for (i = 0; i < inputArray.length; i++)
+            if (inputArray[i].length == max)
+                arr.push(inputArray[i]);
+    
+        return arr;
+    }   
+    console.log(allLongestStrings(["aba", "aa", "ad", "vcd", "aba"]));
+    </script>
+</body>
+</html>

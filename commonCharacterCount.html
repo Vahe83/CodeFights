@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>commonCharacterCount</title>
+</head>
+<body>
+    <script>
+    function commonCharacterCount(s1, s2)
+    {
+        if (s1.length < s2.length)
+            return check(s1, s2);
+        else
+           return check(s2, s1); 
+    }
+
+    function check(s1, s2)
+    {
+        var str1, i, s, index;
+
+        i = s = 0;
+        while (i < s1.length)
+        {
+            index = s2.search(s1.charAt(i));
+            if (index != -1)
+            {
+               str1 = s2.slice(0, index);
+               str1 = str1.concat(s2.slice(index + 1, s2.length));
+               s2 = str1;
+               s++;
+            }
+            i++;
+        }    
+
+        return s;    
+    }
+        
+    console.log(commonCharacterCount("aabcc", "adcaa"));
+    </script>
+</body>
+</html>

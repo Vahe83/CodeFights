@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>reverseParentheses</title>
+</head>
+<body>
+    <script>
+    function reverseParentheses(str)
+    {
+        let midStr, midRevStr, j;
+        let regexp = /[\(\)]/g;
+        let arr1 = [0];
+        let i = 0;
+
+
+        while (regexp.test(str) == true)
+        {
+            midRevStr = "";
+            index1 = regexp.lastIndex;
+            if ( str.charAt(index1 - 1) == "(" )
+            {
+                i++;
+                arr1.push(index1);
+            }
+            else
+            {
+                midStr = str.slice(arr1[i], index1 - 1);
+                for (j = midStr.length - 1; j >= 0; j--)
+                   midRevStr = midRevStr.concat(midStr.charAt(j));
+
+                midRevStr = midRevStr.concat("__");
+                str = str.replace(str.slice(arr1[i] - 1, index1), midRevStr);
+                arr1.splice(i, 1);
+                i--;
+
+            }
+
+        }
+        
+        return str.replace(/__/g, "");
+
+    }
+
+
+    console.log(reverseParentheses("a(bc)de"));
+    </script>
+</body>
+</html>
+
+
