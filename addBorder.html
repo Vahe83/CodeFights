@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>addBorder</title>
+</head>
+<body>
+    <script>
+    function addBorder(picture)
+    {
+        let strLen = picture[0].length + 1;
+        let asterisks = "*";
+        let matrixLen = picture.length;
+
+        for (var i = 0; i < matrixLen; i++)
+        {
+           picture[i] = asterisks.concat(picture[i]);
+           picture[i] = picture[i].concat(asterisks);
+        }
+
+        for (i = 0; i < strLen; i++)
+            asterisks = asterisks.concat('*');
+
+        picture.unshift(asterisks);
+        picture.push(asterisks);
+
+
+        return picture;
+    }
+
+    console.log(addBorder(["abc","ded"]));
+    </script>
+</body>
+</html>

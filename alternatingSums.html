@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>alternatingSums</title>
+</head>
+<body>
+    <script>
+    function alternatingSums(a)
+    {
+        let s1, s2;
+        let arr = [];
+        
+        s1 = s2 = 0;
+        a.push(0);
+        for (let i = 0; i < a.length; i += 2)
+        {
+            s1 += a[i];
+            s2 += a[i+1];
+        }
+
+        arr.push(s1);
+        arr.push(s2);
+
+        return arr;
+
+    }
+
+
+    console.log(alternatingSums([50, 60, 60, 45, 70]));
+    </script>
+</body>
+</html>
