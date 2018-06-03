@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>arrayMaximalAdjacentDifference</title>
+</head>
+<body>
+    <script>
+    function arrayMaximalAdjacentDifference(inputArray)
+    {
+        let max = Math.abs(inputArray[1] - inputArray[0]);
+        let arrLen = inputArray.length;
+
+        for (let i = 2; i < arrLen; i++)
+            if (Math.abs(inputArray[i] - inputArray[i-1]) > max)
+                max = Math.abs(inputArray[i] - inputArray[i-1]);
+
+        return max;
+
+    }
+
+    console.log(arrayMaximalAdjacentDifference([2, 4, 1, 0]));
+    </script>
+</body>
+</html>

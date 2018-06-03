@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>arrayChange</title>
+</head>
+<body>
+    <script>
+    function arrayChange(inputArray)
+    {
+        let count = 0;
+        let difference;
+        for (let i = 0; i < inputArray.length - 1; i++)
+        {
+            if (inputArray[i] >= inputArray[i + 1])
+            {
+                difference =  inputArray[i] - inputArray[i + 1] + 1;
+                count += difference;
+                inputArray[i + 1] += difference;
+            }
+
+        }
+
+        return count;
+
+    }
+    console.log(arrayChange([1, 1, 1]));
+    </script>
+</body>
+</html>

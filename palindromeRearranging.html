@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>palindromeRearranging</title>
+</head>
+<body>
+    <script>
+    function palindromeRearranging(inputString)
+    {
+        let arr = inputString.split("");
+        let n = arr.length;
+        let quan = [];
+        let s = 0;
+        let i, j, t;
+
+        arr.sort();
+        t = j = 0;
+
+        while (j < n && t < 2)
+        {
+            s++;
+
+            for (i = j + 1; i < n; i++)
+                if (arr[j] == arr[i])
+                    s++;
+                else
+                    break;
+
+            if (s % 2 != 0)
+            {
+                quan.push(s);
+                t++;
+            }
+            s = 0;
+            j = i;
+        }
+       return t == 2 ? false : true;
+            
+    }
+
+    console.log(palindromeRearranging("aabb"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>isIPv4Address</title>
+</head>
+<body>
+    <script>
+    function isIPv4Address(inputString)
+    {
+        let patt = /(\w+|\.)/g;
+        let result = inputString.match(patt);
+
+        if (result.length == 7)
+        {
+            patt1 = /[a-z]/gi;
+            let i = 0;
+            while (i < 6) 
+            {
+                if (result[i].match(patt1) == null)
+                {  if (Number(result[i]) < 0 || Number(result[i]) > 255)
+                        return false;
+                }
+                else
+                    return false;
+
+                if (result[i+1] != ".")
+                    return false;
+                i += 2;
+            }
+            if (result[i].match(patt1) == null)
+            {  
+                if (Number(result[i]) < 0 || Number(result[i]) > 255)
+                        return false;
+            }
+            else
+               return false;
+
+            return true;
+        }
+        else   
+            return false;
+    }
+
+
+    console.log(isIPv4Address("172.16.254.1"));
+    </script>
+</body>
+</html>
