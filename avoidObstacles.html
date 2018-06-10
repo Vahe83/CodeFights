@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>avoidObstacles</title>
+</head>
+<body>
+    <script>
+    function avoidObstacles(inputArray)
+    {
+        inputArray.sort((a, b) => {return a - b});
+
+        let i;
+        while (i < inputArray.length - 1 && (inputArray[i] - inputArray[i-1]) == 1)
+                    i++;
+
+        if (i == inputArray.length - 1)
+            return inputArray[i] + 1;
+
+        var lastArrVal = inputArray[inputArray.length - 1];
+
+        for (i = 1; i <= lastArrVal + 1; i++)
+        {
+            if (inputArray.every((element) => {return element % i != 0}))
+                return i;
+        }
+        
+    }
+    
+    console.log([5, 3, 6, 7, 9]);
+    </script>
+</body>
+</html>

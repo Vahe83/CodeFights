@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Minesweeper</title>
+</head>
+<body>
+    <script>
+    function minesweeper(matrix)
+    {
+        let countMine = [];
+        for (let i = 0; i < matrix.length; i++)
+        {
+            countMine.push([]);
+
+            for (let j = 0; j < matrix[i].length; j++)
+            {
+                countMine[i][j] = 0;
+                //top
+                if (matrix[i-1] !== undefined)
+                    if (matrix[i-1][j] === true)
+                        countMine[i][j]++;
+
+                //buttom
+                if (matrix[i+1] !== undefined)
+                    if (matrix[i+1][j] === true)
+                        countMine[i][j]++;
+
+                //left
+                if (matrix[i][j-1] !== undefined)
+                    if (matrix[i][j-1] === true)
+                        countMine[i][j]++;
+
+                //right
+                if (matrix[i][j+1] !== undefined)
+                    if (matrix[i][j+1] === true)
+                        countMine[i][j]++;
+
+                //top and left
+                if (matrix[i-1] !== undefined)
+                    if (matrix[i-1][j-1] === true)
+                        countMine[i][j]++;
+
+                //top and right
+                if (matrix[i-1] !== undefined)
+                    if (matrix[i-1][j+1] === true)
+                        countMine[i][j]++;
+
+                //buttom and left
+                if (matrix[i+1] !== undefined)
+                    if (matrix[i+1][j-1] === true)
+                        countMine[i][j]++;
+
+                //buttom and left
+                if (matrix[i+1] !== undefined)
+                    if (matrix[i+1][j+1] === true)
+                        countMine[i][j]++;
+
+            }
+        }
+
+        return countMine;
+    }
+    
+    console.log(minesweeper([[true,false,false], 
+                            [false,true,false], 
+                            [false,false,false]]));
+    </script>
+</body>
+</html>
