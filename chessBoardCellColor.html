@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>chessBoardCellColor</title>
+</head>
+<body>
+    <script>
+   function chessBoardCellColor(cell1, cell2)
+    {
+        let regexp1 = /^[ACEG]/gi;
+        let regexp2 = /^[BDFH]/gi;
+
+        if (regexp1.test(cell1))
+          if (regexp2.test(cell2))
+             return ((+cell1[1] + (+cell2[1])) % 2) == 1;
+          else
+              return ((+cell1[1] + (+cell2[1])) % 2) == 0;
+
+         else
+           if (regexp2.test(cell2))
+              return ((+cell1[1] + (+cell2[1])) % 2) == 0;
+           else
+              return ((+cell1[1] + (+cell2[1])) % 2) == 1;
+          
+    }
+        console.log(chessBoardCellColor("A1", "C3"));
+    </script>
+</body>
+</html>

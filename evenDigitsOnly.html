@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>evenDigitsOnly</title>
+</head>
+<body>
+    <script>
+    evenDigitsOnly = (n) =>
+    {
+        if (n == 0)
+            return true;
+
+        if ((n % 10) % 2)
+            return false;
+
+        return evenDigitsOnly((n - n % 10) / 10);
+    
+    }
+
+    console.log(evenDigitsOnly(248622));
+    </script>
+</body>
+</html>
+

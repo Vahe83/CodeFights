@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>alphabeticShift</title>
+</head>
+<body>
+    <script>
+    function alphabeticShift(str)
+    {
+        let finalStr = "";
+
+        for (let i in str)
+            finalStr += String.fromCharCode((str.charCodeAt(i) - 96) % 26 + 97);
+
+        return finalStr;
+
+    }
+
+    console.log(alphabeticShift("crazy"));
+    </script>
+</body>
+</html>
