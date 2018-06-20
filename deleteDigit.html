@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>deleteDigit</title>
+</head>
+<body>
+<script>
+function deleteDigit(n)
+{
+    let str = n.toString();
+    let strLen = str.length;
+    let max = Number(str.slice(1, strLen));
+    let i = 0;
+    let num;
+    
+    while (++i <= strLen)
+    {
+        num = Number(str.slice(0, i-1) + str.slice(i, strLen));
+        if (num > max)
+            max = num;
+
+    }
+    
+    return max;
+}
+
+console.log(deleteDigit(75));
+</script>
+</body>
+</html>

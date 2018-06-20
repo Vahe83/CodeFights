@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>chessKnight</title>
+</head>
+<body>
+    <script>
+    function chessKnight(cell)
+    {
+        let letters = "abcdefgh";
+        let count = 0;
+
+        let indexLet = letters.indexOf(cell[0]);
+        let digit = Number(cell[1]);
+
+        if (indexLet + 2 <= 7)
+            check(digit, 1);
+
+        if (indexLet - 2 >= 0)
+            check(digit, 1);
+
+
+        if (indexLet + 1 <= 7)
+            check(digit, 2);
+
+
+        if (indexLet - 1 >= 0)
+            check(digit, 2);
+
+        function check(dig, step)
+        {
+            if (dig + step <= 8)
+                count++;
+            if (dig - step >= 1)
+                count++;
+        }
+        return count;
+    }
+    console.log(chessKnight("a1"));
+    </script>
+</body>
+</html>

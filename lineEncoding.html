@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>lineEncoding</title>
+</head>
+<body>
+    <script>
+    function lineEncoding(s)
+    {
+        let len = s.length;
+        let finalstr = "";
+        let count;
+        let char;
+        let i = 0;
+        while (i < len)
+        {
+            char = s[i];
+            i++;
+            count = 1;
+            while (char == s[i] && i < len)
+            {
+               count++;
+                i++;
+            }
+
+            if (count > 1)
+                finalstr = finalstr.concat(count).concat(char);
+            else
+                finalstr = finalstr.concat(char);
+        }
+
+        return finalstr;
+    }
+        
+    console.log(lineEncoding("abcd"));
+    </script>
+</body>
+</html>
