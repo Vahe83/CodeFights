@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isBeautifulString</title>
+</head>
+<body>
+   <script>
+       function isBeautifulString(str)
+        {
+            str = str.split("").sort().join("");
+            if (str[0].charCodeAt() != 97)
+                return false;
+
+            let index;
+            let strLen = str.length;
+            let sum = strLen;
+            let num = 97;
+
+            for (let i = 0; i < strLen; i++)
+            {
+                if (str[i].charCodeAt() == num++)
+                {
+                    index = str.lastIndexOf(str[i]);
+                    if (index - i <= sum)
+                       sum = index - i;
+                    else
+                        return false;
+                }
+                else
+                    return false;
+
+                i = index;
+            }
+
+            return true;
+
+        }
+       console.log(isBeautifulString("bbbaacdafe"));
+    </script>
+    
+</body>
+</html>

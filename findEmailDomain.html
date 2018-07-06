@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>findEmailDomain</title>
+</head>
+<body>
+   <script>
+       findEmailDomain = address => address.match(/@([a-z])*.([a-z])*$/gi)[0].substr(1);
+       
+       console.log(findEmailDomain("prettyandsimple@example.com"));
+    </script>
+    
+</body>
+</html>

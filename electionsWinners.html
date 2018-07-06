@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ElectionsWinners</title>
+</head>
+<body>
+   <script>
+       function electionsWinners(votes, k)
+       {
+        if (k == 0)
+        {
+            let obj = {};
+
+            for (let el of votes)
+                if (obj[el] == undefined)
+                    obj[el] = 1;
+                else
+                    obj[el]++;
+
+            let maxEl = Math.max(...Object.keys(obj));
+
+
+            return obj[maxEl] > 1 ? 0 : 1;
+
+        }
+        else
+        {
+            let count = 0;
+            let max = Math.max(...votes);
+
+            for (let el of votes)
+                if (el + k > max)
+                    count++;
+
+            return count;
+        }
+
+      }
+    
+    console.log(electionsWinners([2, 3, 5, 2], 3));
+   </script>
+    
+</body>
+</html>

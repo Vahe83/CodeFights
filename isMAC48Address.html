@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>isMAC48Address</title>
+</head>
+<body>
+   <script>
+    function isMAC48Address(str)
+    {
+        let patt = /(^[A-F]|[0-9])([A-F]|[0-9])-([A-F]|[0-9])([A-F]|[0-9])-([A-F]|[0-9])([A-F]|[0-9])-([A-F]|[0-9])([A-F]|[0-9])-([A-F]|[0-9])([A-F]|[0-9])-([A-F]|[0-9])([A-F]|[0-9])$/;
+
+        return patt.test(str);
+
+    }
+    console.log(isMAC48Address("00-1B-63-84-45-E6"));
+    </script>
+</body>
+</html>

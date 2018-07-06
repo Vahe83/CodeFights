@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>buildPalindrome</title>
+</head>
+<body>
+   <script>
+       function buildPalindrome(st)
+       {
+            if (isPolindrome(st))
+                return st;
+
+            let strLen = st.length;
+            let firstMatch;
+            let index = 0;
+            let i;
+
+            while (index < strLen)
+            {
+                firstMatch = st.indexOf(st[strLen-1], index);
+                if (isPolindrome(st.slice(firstMatch)))
+                {
+                    for (i = firstMatch-1; i >= 0; i--)
+                        st += st.charAt(i);
+
+                    return st;
+                }
+                index = firstMatch + 1;
+            }
+
+        }
+
+        function isPolindrome(str)
+        {
+            let i = 0;
+            let j = str.length - 1;
+            let n = Math.floor((j + 1) / 2);
+
+            while (i < n && str[i] == str[j])
+            {
+                i++;
+                j--;
+            }
+
+            return i == n;
+        }
+       console.log(buildPalindrome("abcdc"));
+    </script>
+    
+</body>
+</html>
