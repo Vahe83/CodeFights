@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>growingPlant</title>
+</head>
+<body>
+   <script>
+       function growingPlant(upSpeed, downSpeed, desiredHeight)
+        {
+
+            let plant = upSpeed;
+            let count = 1;
+
+            while (plant < desiredHeight)
+            {
+                plant += upSpeed - downSpeed;
+                count++
+            }
+
+            return count;
+
+        }
+       console.log(growingPlant(100, 10, 910));
+   </script>
+    
+</body>
+</html>

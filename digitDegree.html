@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>digitDegree</title>
+</head>
+<body>
+    <script>
+        function digitDegree(n)
+        {
+            let sum;
+            let count = 0;
+
+            while (Math.floor(n / 10) > 0) 
+            { 
+                sum = 0;
+                do
+                {
+                    sum += n % 10;
+                } 
+                while (n = Math.floor(n / 10));
+                n = sum;
+                count++;
+            }
+
+            return count;
+        }
+        console.log(digitDegree(100));
+    </script>
+</body>
+</html>
