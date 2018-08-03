@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DifferentSquares</title>
+</head>
+<body>
+   <script>
+       function differentSquares(matrix)
+        {
+           let i, j;
+           let str = '';
+           const arrOfStr = [];
+           const rowLen = matrix.length;
+           const colLen = matrix[0].length;
+           let rowIndex, colIndex;
+
+           rowIndex = colIndex = 0;
+
+           while (rowIndex < rowLen - 1)
+           {
+             while (colIndex < colLen - 1)
+             {  
+                for (i = rowIndex; i <= rowIndex + 1; i++)
+                  for (j = colIndex; j <= colIndex + 1; j++)
+                      str = str.concat(matrix[i][j]);
+
+                if (!arrOfStr.includes(str))
+                   arrOfStr.push(str);
+
+                str = '';
+                colIndex++;
+             }
+             rowIndex++;
+             colIndex = 0;
+           }
+   
+        return arrOfStr.length;
+
+        }
+        let matrix = [[1, 2, 1],
+                    [2, 2, 2],
+                    [2, 2, 2],
+                    [1, 2, 3],
+                    [2, 2, 1]];
+       
+       console.log(differentSquares(matrix));
+    </script>
+    
+</body>
+</html>

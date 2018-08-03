@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>validTime</title>
+</head>
+<body>
+   <script>
+    function validTime(str)
+    {
+       const regExp = /\d+/g;
+       let arr = str.match(regExp).map(el => +el);
+
+       return (arr[0] >= 0 && arr[0] <= 23) && (arr[1] >= 0 && arr[1] <= 59);
+
+    }
+
+    console.log(validTime("23:58"));
+           
+    </script>
+    
+</body>
+</html>

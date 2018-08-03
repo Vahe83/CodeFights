@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MessageFromBinaryCode</title>
+</head>
+<body>
+   <script>
+    function messageFromBinaryCode(code)
+    {
+        let deCoded = '';
+        let i = 0;
+        while (i <= code.length - 8)
+        {
+            deCoded = deCoded
+                .concat(String.fromCharCode(parseInt(code.slice(i, i + 8), 2)));
+            i += 8;
+        }
+
+        return deCoded;
+
+    }
+    
+    console.log(messageFromBinaryCode("010010000110010101101100011011000110111100100001"));
+   </script>
+</body>
+</html>

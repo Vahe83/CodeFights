@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FileNaming</title>
+</head>
+<body>
+   <script>
+    function fileNaming(names)
+    {
+       const checkedNames = [];
+       let name = '';
+       let j = 1;
+       let k = 1;
+       let i = 0;
+
+       while (i < names.length)
+       {  
+           if (!checkedNames.includes(names[i] + name))
+            {
+               checkedNames.push(names[i] + name);
+               i++;
+               name = '';
+               k = 1;
+            }
+           else
+            {
+               if (names[i].length == 2)
+               {
+                   name = '(' + j + ')';
+                   j++;
+               }
+                else
+                {
+                    name = '(' + k + ')';
+                    k++;
+                }
+            }
+       }
+
+      return checkedNames;
+
+    }
+       
+       console.log(fileNaming(["doc", "doc", "image", "doc(1)", "doc"]));
+
+    </script>
+    
+</body>
+</html>

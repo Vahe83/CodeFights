@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku</title>
+</head>
+<body>
+   <script>
+    function sudoku(grid)
+    {
+       let i, j
+       let rowIndex, colIndex;
+       let set = new Set();
+
+       rowIndex = colIndex = 0;
+
+       while (rowIndex <= 6)
+        {
+           while (colIndex <= 6)
+           {
+               for (i = rowIndex; i < 3 + rowIndex; i++)
+                   for (j = colIndex; j < 3 + colIndex; j++)
+                       set.add(grid[i][j]);
+
+               if (set.size !== 9)
+                   return false;
+               else
+                   set.clear();
+               colIndex += 3;
+           }
+            rowIndex += 3;
+            colIndex = 0;
+        }
+
+        let setRows;
+        for (i = 0; i < 9; i++)
+         {
+             setRows = new Set (grid[i]);
+             if (setRows.size !== 9)
+                return false;
+         }
+
+         for (j = 0; j < 9; j++)
+         {
+             for (i = 0; i < 9; i++)
+               set.add(grid[i][j]);
+
+             if (set.size !== 9)
+                   return false;
+               else
+                   set.clear();
+         }
+         return true;  
+    }
+    
+    console.log(sudoku([[1,3,2,5,4,6,9,8,7], 
+                         [4,6,5,8,7,9,3,1,1], 
+                         [7,9,8,2,1,3,6,5,4], 
+                         [9,2,1,4,3,5,8,7,6], 
+                         [3,5,4,7,6,8,2,1,9], 
+                         [6,8,7,1,9,2,5,4,3], 
+                         [5,7,6,9,8,1,4,3,2], 
+                         [2,4,3,6,5,7,1,9,8], 
+                         [8,1,9,3,2,4,7,6,5]]));
+    </script>
+    
+</body>
+</html>

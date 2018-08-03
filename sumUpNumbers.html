@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sumUpNumbers</title>
+</head>
+<body>
+   <script>
+    function sumUpNumbers(str)
+    {
+        const arr = str.match(/\d+/g);
+   
+        return arr ? arr.map(el => +el).reduce((total, num) => total + num) : 0;
+    }   
+    
+    console.log(sumUpNumbers("2 apples, 12 oranges"));
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpiralNumbers</title>
+</head>
+<body>
+   <script>
+       function spiralNumbers(n)
+       {
+        let i, num;
+
+       let newArr = new Array(n);
+       let checkedMatrix = [];
+
+       for (i = 0; i < n; i++)
+            checkedMatrix.push([...newArr]);
+
+       for (i = 1; i <= n; i++)
+         checkedMatrix[0][i-1] = i;
+
+
+       num = n + 1;
+       let rowIndex = 1;
+       let colIndex = 0;
+       let dec1 = 1;
+       let dec2 = 2;
+       let dec = 1;
+       let N = n * n;
+       while (num <= N)
+        {
+            if (dec % 2 !== 0)
+            {
+                first(n, rowIndex, dec1);
+                dec1++;
+                rowIndex++
+            }
+            else
+            { 
+                second(n, colIndex, dec2); 
+                dec2++;
+                colIndex++
+            }
+            dec++;
+        }
+
+
+       function first(n, rowIndex, dec)
+       {
+           let j = n - dec 
+           let i;
+
+           for (i = rowIndex; i <= j; i++)
+            {
+                checkedMatrix[i][j] = num++;
+
+            }
+
+           i = j; //3
+           let colIndex = rowIndex - 1; 
+
+           for (j = i - 1; j >= colIndex; j--)
+                checkedMatrix[i][j] = num++;
+       }
+
+
+       function second(n, colIndex, dec)
+       {
+           j = colIndex; 
+           let i;
+           let rowIndex = colIndex + 1;  
+
+           for (i = n - dec; i >= rowIndex; i--)
+               checkedMatrix[i][j] = num++;
+
+
+
+          colIndex = n - dec; 
+           i = rowIndex;
+          for (j = rowIndex; j <= colIndex; j++)
+               checkedMatrix[i][j] = num++;
+       }
+
+        return checkedMatrix;
+
+       }
+
+       console.log(spiralNumbers(7));
+           
+       
+    </script>
+    
+</body>
+</html>
